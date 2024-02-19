@@ -29,29 +29,66 @@ document.querySelectorAll(".drum").forEach((button) => {
     });
     });
 document.addEventListener("keydown",(event) => {
-        switch(event.key.toLowerCase()) {
+        const key = event.key.toLowerCase() 
+        switch(key) {
             case "w":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/tom-1.mp3").play();
                 break;
             case "a":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/tom-2.mp3").play();
                 break;
-            case "s":;
+            case "s":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/tom-3.mp3").play();
                 break;
             case "d":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/tom-4.mp3").play();
                 break;
             case "j":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/snare.mp3").play();
                 break;
             case "k":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/kick-bass.mp3").play();
                 break;
             case "l":
+                document.getElementsByClassName(key)[0].style.color = "white"
                 new Audio("sounds/crash.mp3").play();
                 break;
  
             default: 
         }    
+});
+
+document.addEventListener("keyup",(event) =>{
+    const key = event.key.toLowerCase()
+    switch(key) {
+        case "w":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "a":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "s":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "d":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "j":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "k":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        case "l":
+            document.getElementsByClassName(key)[0].style.color = "#DA0463";
+            break;
+        default:
+
+    }
 });
