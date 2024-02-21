@@ -1,17 +1,8 @@
 // create event when user clicks on an instrument buttons.
-document.querySelectorAll(".drum").forEach((button) => {
-    const key = button.innerHTML;
-    button.addEventListener("click",() => {
-        buttonAnimation(key)
-        makeSound(key) 
-    });
-});
-// create events for when w,a,s,d,j,k, or l are pressed on keyboard.  
-document.addEventListener("keydown",(event) => {
-    const key = event.key.toLowerCase();
-    buttonAnimation(key);    
-    makeSound(key);
-});
+$('.drum').toArray().forEach((button) => $(button).on("click",() => makeSound($(button).html())));
+
+// create events for keyboard presses.
+$(document).on("keydown", (event) => makeSound(event.key.toLowerCase()));
 
 const makeSound = (key) => {
           switch(key) {
@@ -37,17 +28,14 @@ const makeSound = (key) => {
                 new Audio("sounds/crash.mp3").play();
                 break;
  
-            default: 
+            default:
+                return; 
           }
+        buttonAnimation(key);    
 }
 // Animates the specific button that triggered the event.
+// Changes button to pressed state. after 1/10th of a second, the button goes back to normal. 
 const buttonAnimation = (key) => {
-    // button pressed state.
-    document.querySelector('.'+key).classList.add('pressed')
-    document.querySelector('.'+key).style.color = "white"
-    //after 1/10th of a second, the but goes back to normal. 
-    setTimeout(()=> {
-        document.querySelector('.'+key).classList.remove('pressed')
-        document.querySelector('.'+key).style.color = "#DA0463"
-    },100)
+    $('.'+key).addClass('pressed').css({"color": "white"})
+    setTimeout(()=> $('.'+key).removeClass('pressed').css({"color": "#DA0463"}) ,100)
 }
